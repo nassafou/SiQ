@@ -1,0 +1,41 @@
+{% extends "SupportBundle::layout.html.twig" %}
+
+{% block title %}
+    Lecture d'un ticket - {{ parent()}}
+{% endblock %}
+
+{% block siqsupport_body %}
+    <div class="row">
+        
+    <h3>
+        {# On vérifie qu'une image soit bien associée à l'article #}
+        {% if ticket.image is not null %}
+            <img src="{{ ticket.image.url }}" alt="{{ ticket.image.alt }}" />
+        {% endif %}
+        
+        {{ ticket.titre }}</h3>
+    <i>Par {{ ticket.auteur }}, le {{ ticket.date|date('d/m/Y') }}</i>
+    <div class="col-md-8">
+    <div class="well">
+        
+        {{ ticket.contenu }}
+    </div>
+    </div>
+    
+    <p>
+        <a href="{{ path('siqsupport_accueil') }}" class="btn">
+            <i class="icon-chevron-left"></i>
+            Retour à la liste
+        </a>
+        <a href="{{ path('siqsupport_modifier', {'id': ticket.id }) }}" class="btn">
+            <i class="icon-edit"></i>
+            Modifier le ticket
+        </a>
+        
+        <a href="{{ path('siqsupport_archiver', {'id': ticket.id }) }}" class="btn">
+            <i class="icon-trash"></i>
+            Archiver le Ticket
+        </a>
+    </p>
+    </div>
+{% endblock %}

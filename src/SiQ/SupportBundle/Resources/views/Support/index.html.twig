@@ -1,0 +1,23 @@
+{% extends "SupportBundle::layout.html.twig" %}
+{% block title %}
+    Accueil - {{ parent() }}
+{% endblock %}
+{% block siqsupport_body %}
+    <h2>Liste des tickets </h2>
+    
+        <ul>
+        <row>
+        {% for ticket in tickets %}
+            <li>
+                <a href="{{ path('siqsupport_voir', {'id': ticket.id}) }}">{{
+                ticket.titre }}</a>
+                par {{ ticket.auteur }},
+                le  {{ ticket.date|date('d/m/Y') }}
+            </li>
+        {% else %}
+            <li>Pas (encore) de tickets </li>
+        {% endfor %}
+        </row>
+    </ul>
+    
+{% endblock %}

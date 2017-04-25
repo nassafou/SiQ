@@ -1,0 +1,42 @@
+support_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: SupportBundle:Default:index }
+
+siqsupport_accueil:
+    pattern:  /{page}
+    defaults: { _controller: SupportBundle:Support:index, page: 1 }
+    requirements:
+        page: \d*
+
+siqsupport_voir:
+    pattern:  /ticket/{id}
+    defaults: { _controller: SupportBundle:Support:voir }
+    requirements:
+        id:  \d+
+
+siqsupport_ajouter:
+    pattern:  /ticket/ajouter
+    defaults: { _controller: SupportBundle:Support:ajouter }
+
+siqsupport_modifier:
+    pattern:  /ticket/modifier/{id}
+    defaults: { _controller: SupportBundle:Support:modifier }
+    requirements:
+        id: \d+
+
+siqsupport_archiver:
+    pattern:  /ticket/archiver/{id}
+    defaults: { _controller: SupportBundle:Support:archiver }
+    requirements:
+        id: \d+
+
+
+
+siqsupport_voir_slug:
+    pattern:  /ticket/{annee}/{slug}.{format}
+    defaults: { _controller: SupportBundle:Support:voirSlug, format: html }
+    requirements:
+        annee: \d{4}
+        format: html|xml
+
+

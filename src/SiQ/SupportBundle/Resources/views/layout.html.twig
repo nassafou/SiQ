@@ -1,0 +1,15 @@
+{% extends "::layout.html.twig" %}
+{% block title %}
+ {{ parent() }}
+{% endblock %}
+
+{% block body %}
+    {# On definit un sous-titre commun à toutes les pages du bundle, par exemple #}
+    
+    <h1>Support</h1>
+    <hr>
+    
+    {% block siqsupport_body %}
+    {% endblock %}
+    
+{% endblock %}

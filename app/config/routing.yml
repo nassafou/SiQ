@@ -1,0 +1,4 @@
+support:
+    resource: "@SupportBundle/Resources/config/routing.yml"
+    prefix:   /support
+

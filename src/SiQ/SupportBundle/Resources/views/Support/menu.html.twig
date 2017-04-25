@@ -1,0 +1,8 @@
+<h3>Les derniers tickets</h3>
+    <ul class="nav nav">
+        {% for ticket in liste_tickets %}
+            <li><a href="{{ path('siqsupport_voir', {'id': ticket.id}) }}">{{ ticket.titre }}
+            </a>
+            </li>
+         {% endfor %}   
+    </ul>
