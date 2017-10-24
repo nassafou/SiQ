@@ -1,0 +1,19 @@
+{% extends "SupportBundle::layout.html.twig" %}
+
+{% block title %}
+    Ajouter  d'un ticket - {{ parent()}}
+{% endblock %}
+
+{% block siqsupport_body %}
+    
+    <h2>Ajouter un ticket1</h2>
+    {% include "SupportBundle:Support:formulaire.html.twig" %}
+    
+   <p>
+    {# <a href="{{ path('siqsupport_voir', {'id': ticket.id }) }}" class="btn">
+        <i class="icon-chevron-left"></i>
+        Retour 
+    </a>
+    #}
+   </p>
+{% endblock %}

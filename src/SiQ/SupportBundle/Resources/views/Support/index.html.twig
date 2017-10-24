@@ -1,0 +1,33 @@
+{% extends "SupportBundle::layout.html.twig" %}
+{% block title %}
+    Accueil - {{ parent() }}
+{% endblock %}
+{% block siqsupport_body %}
+    <h2>Liste des tickets </h2>
+        
+        {% for ticket in ticket1 %}
+            <li>
+                <a href="{{ path('siqsupport_voir', {'id': ticket.id}) }}">{{
+                ticket.titre }}</a>
+                par {{ ticket.auteur }},
+                le  {{ ticket.date|date('d/m/Y') }}
+            </li>
+        {% else %}
+            <li>Pas (encore) de tickets </li>
+        {% endfor %}
+    
+    <div class="pagination">
+        <div class="nav nav-pills"
+            <ul>
+            {# on utilise la fonction range(a,b) qui crée un tableau de valeurs entre a et b #}
+            
+            {% for p in range(1, nombrePage) %}
+                <li {% if p == page %} class="active" {% endif %}>
+                     <a href="{{ path('support_accueil', {'page': p}) }}">{{ p
+                     }}</a>
+                </li>
+            {% endfor %}
+            </ul>
+        </div> 
+    </div>
+{% endblock %}
